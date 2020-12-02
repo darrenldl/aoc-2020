@@ -1,0 +1,18 @@
+module type TESTABLE = sig
+  type t
+
+  val pp : t Fmt.t
+
+  val equal : t -> t -> bool
+end
+
+let test_get_pairs () =
+  let ints = Lib.get_input () in
+  Alcotest.(check (int * int))
+    "can find correct summing pairs" (2, 3)
+    (Lib.find_summing_pairs ints)
+
+(* Run it *)
+let () =
+  let open Alcotest in
+  run "Day1" [ ("fns", [ test_case "abc" `Quick test_get_pairs ]) ]

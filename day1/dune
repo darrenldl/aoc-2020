@@ -1,0 +1,18 @@
+(executable
+ (name day1bin)
+ (modules day1bin)
+ (libraries day1lib))
+
+(library
+ (modules day1lib)
+ (name day1lib)
+ (libraries fixture containers))
+
+; (tests
+;  (names test)
+;  (modules test)
+;  (libraries alcotest lib))
+
+(alias
+ (name runtest)
+ (deps test.exe))
