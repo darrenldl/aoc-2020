@@ -1,0 +1,21 @@
+(executable
+ (name day4bin)
+ (modules day4bin)
+ (libraries day4lib)
+ (preprocess (pps ppx_jane)))
+
+(library
+ (modules day4lib)
+ (name day4lib)
+ (libraries fixture base pcre str)
+ (preprocess (pps ppx_jane)))
+
+; (tests
+;  (names day4test)
+;  (modules day4test)
+;  (libraries alcotest day4lib))
+
+(alias
+ (name runtest)
+ (deps day4test.exe)
+ )

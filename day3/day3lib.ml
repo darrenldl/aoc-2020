@@ -19,7 +19,7 @@ let get_tree_hits all_rows width (dx, dy) =
 let as_tuple a b = (a, b)
 
 let find_soln () =
-  Fixture.get_lines String.to_list
-  |> fun rows -> as_tuple rows @@ List.(length (hd_exn rows))
-  |> fun (rows, width) -> List.map ~f:(get_tree_hits rows width) part_2_dx_dy
+  Fixture.get_lines String.to_list |> fun rows ->
+  (as_tuple rows @@ List.(length (hd_exn rows))) |> fun (rows, width) ->
+  List.map ~f:(get_tree_hits rows width) part_2_dx_dy
   |> List.fold ~init:1 ~f:Int.( * )
