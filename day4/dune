@@ -2,13 +2,13 @@
  (name day4bin)
  (modules day4bin)
  (libraries day4lib)
- (preprocess (pps ppx_jane)))
+ (preprocess (pps ppx_jane ppx_deriving.show)))
 
 (library
  (modules day4lib)
  (name day4lib)
  (libraries fixture base pcre str)
- (preprocess (pps ppx_jane)))
+ (preprocess (pps ppx_jane ppx_deriving.show)))
 
 ; (tests
 ;  (names day4test)
