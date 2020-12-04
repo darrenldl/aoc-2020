@@ -1,8 +1,10 @@
-let line_stream_of_channel channel =
-  Stream.from (fun _ ->
-      try Some (input_line channel) with End_of_file -> None)
+let line_stream_of_channel : 'a -> string Stream.t =
+ fun channel ->
+  let read () = input_line channel in
+  Stream.from (fun _ -> try Some (read ()) with End_of_file -> Option.None)
 
-let get_lines (parse_line : string -> 'a) =
+let get_lines : (string -> 'a) -> 'b list =
+ fun parse_line ->
   let lines = ref [] in
   let in_channel = open_in Sys.argv.(1) in
   try

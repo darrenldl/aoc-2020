@@ -1,0 +1,18 @@
+(executable
+ (name day3bin)
+ (modules day3bin)
+ (libraries day3lib))
+
+(library
+ (modules day3lib)
+ (name day3lib)
+ (libraries fixture base))
+
+(tests
+ (names day3test)
+ (modules day3test)
+ (libraries alcotest day3lib))
+
+(alias
+ (name runtest)
+ (deps day3test.exe))
