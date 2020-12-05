@@ -152,7 +152,6 @@ module Travel_papers = struct
   let of_string str = key_values_of_string str |> kvs_to_map |> of_map
 end
 
-
 let to_single_line_rows lines =
   let open List in
   let filter_empty = filter ~f:(fun l -> not @@ String.is_empty l) in
@@ -176,5 +175,4 @@ let count_valid_documents docs = List.(filter ~f:Option.is_some docs |> length)
 
 let find_soln () =
   Fixture.get_lines (fun s -> s)
-  |> parse_opt_travel_documents
-  |> count_valid_documents
+  |> parse_opt_travel_documents |> count_valid_documents

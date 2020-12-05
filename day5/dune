@@ -1,0 +1,18 @@
+(executable
+ (name day5bin)
+ (modules day5bin)
+ (libraries day5lib))
+
+(library
+ (modules day5lib)
+ (name day5lib)
+ (libraries fixture base containers))
+
+(tests
+ (names day5test)
+ (modules day5test)
+ (libraries alcotest day5lib))
+
+(alias
+ (name runtest)
+ (deps day5test.exe))

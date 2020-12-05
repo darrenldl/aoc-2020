@@ -1,4 +1,5 @@
 let parse_policy str =
+  let open Pcre in
   let policy_fmt = regexp "(\\d+)-(\\d+)\\s+([a-zA-Z]): (.+)" in
   exec ~rex:policy_fmt str |> get_substrings |> function
   | [| _; smin; smax; ch; pw |] ->
