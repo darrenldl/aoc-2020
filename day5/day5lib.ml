@@ -15,9 +15,8 @@ let int_of_binary_ints ints =
 let chs_to_int char_to_bin chs =
   int_of_binary_ints @@ CCList.map char_to_bin chs
 
-let row_chars_to_int chs = chs_to_int row_char_to_bin chs
-
-let col_chars_to_int chs = chs_to_int col_char_to_bin chs
+let row_chars_to_int = chs_to_int row_char_to_bin
+let col_chars_to_int = chs_to_int col_char_to_bin
 
 module Boarding_pass = struct
   let of_string s =
@@ -28,8 +27,21 @@ module Boarding_pass = struct
     (row * 8) + col
 end
 
-let find_soln () =
+let find_soln_1 () =
   let open List in
   get_lines (fun s -> s)
   |> map ~f:Boarding_pass.of_string
   |> fold_left ~f:max ~init:0
+
+let find_soln_2 () =
+  let open List in
+  get_lines (fun s -> s)
+  |> map ~f:Boarding_pass.of_string
+  |> sort ~compare:Int.compare
+  |> fun ids ->
+    find_mapi ~f:(fun i id ->
+      let id' = id + 1 in
+      let next = nth_exn ids (i+1) in
+      if next = id' then None else Some id'
+    ) ids
+  |> fun id -> Option.value_exn id

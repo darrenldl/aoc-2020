@@ -1,1 +1,1 @@
-let _ = Day5lib.find_soln () |> print_int
+let _ = Day5lib.find_soln_2 () |> print_int
