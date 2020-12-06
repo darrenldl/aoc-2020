@@ -20,11 +20,14 @@ let get_lines : (string -> 'a) -> 'b list =
     raise e
 
 let group_by_newline lines =
-  List.fold_left  (fun acc s -> match String.trim s with
-    | "" -> ([])::acc
-    | _ -> match acc with
-      | hd::tail -> (s::hd)::tail
-      | _ -> failwith @@ sprintf "bad lines %s" s) [[]] lines
+  List.fold_left
+    (fun acc s ->
+      match String.trim s with
+      | "" -> [] :: acc
+      | _ -> (
+          match acc with
+          | hd :: tail -> (s :: hd) :: tail
+          | _ -> failwith @@ sprintf "bad lines %s" s ))
+    [ [] ] lines
 
-let get_newline_delimited_lines () =
-  get_lines (fun i -> i) |> group_by_newline
+let get_newline_delimited_lines () = get_lines (fun i -> i) |> group_by_newline
