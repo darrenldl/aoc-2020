@@ -1,18 +1,18 @@
 (executable
- (name day2bin)
- (modules day2bin)
- (libraries day2lib))
+ (name bin)
+ (modules bin)
+ (libraries lib))
 
 (library
- (modules day2lib)
- (name day2lib)
- (libraries fixture containers pcre))
+ (modules fixture lib)
+ (name lib)
+ (libraries base containers pcre))
 
 ; (tests
 ;  (names test)
 ;  (modules test)
 ;  (libraries alcotest lib))
 
-(alias
- (name runtest)
- (deps test.exe))
+; (alias
+;  (name runtest)
+;  (deps test.exe))

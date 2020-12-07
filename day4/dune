@@ -1,21 +1,22 @@
 (executable
- (name day4bin)
- (modules day4bin)
- (libraries day4lib)
+ (name bin)
+ (modules bin)
+ (libraries lib)
  (preprocess (pps ppx_jane ppx_deriving.show)))
 
 (library
- (modules day4lib)
- (name day4lib)
- (libraries fixture base pcre str)
+ (modules fixture lib)
+ (name lib)
+ (libraries base pcre str)
  (preprocess (pps ppx_jane ppx_deriving.show)))
 
-; (tests
-;  (names day4test)
-;  (modules day4test)
-;  (libraries alcotest day4lib))
+(tests
+ (names test)
+ (modules test)
+ (libraries alcotest lib)
+ (preprocess (pps ppx_jane ppx_deriving.show)))
 
 (alias
  (name runtest)
- (deps day4test.exe)
- )
+ (deps test.exe))
+

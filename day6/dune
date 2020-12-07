@@ -6,7 +6,7 @@
 (library
  (modules fixture lib)
  (name lib)
- (libraries fixture base containers))
+ (libraries base containers))
 
 (tests
  (names test)

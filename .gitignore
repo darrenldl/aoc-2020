@@ -2,3 +2,6 @@ _build
 .merlin
 _opam
 _build
+**/fixture.ml
+!./fixture.ml
+dune-project

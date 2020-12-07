@@ -8,27 +8,23 @@ let base_case_row_ints = [ 0; 1; 0; 1; 1; 0; 0 ]
 let test_row_char_to_bin () =
   Alcotest.(check (list int))
     "test_row_char_to_bin" base_case_row_ints
-    (List.map ~f:Day5lib.row_char_to_bin base_case_row_chars)
+    (List.map ~f:Lib.row_char_to_bin base_case_row_chars)
 
 let test_int_of_binary_ints () =
   Alcotest.(check int)
     "int_of_binary_ints" 44
-    (Day5lib.int_of_binary_ints base_case_row_ints)
+    (Lib.int_of_binary_ints base_case_row_ints)
 
 let test_base_example () =
   Alcotest.(check int)
     "test_base_example" 357
-    (Day5lib.Boarding_pass.of_string "FBFBBFFRLR")
+    (Lib.Boarding_pass.of_string "FBFBBFFRLR")
 
 let test_base_col_template input output () =
-  Alcotest.(check int)
-    "test_base_example" output
-    (Day5lib.col_chars_to_int input)
+  Alcotest.(check int) "test_base_example" output (Lib.col_chars_to_int input)
 
 let test_base_row_template input output () =
-  Alcotest.(check int)
-    "test_base_example" output
-    (Day5lib.row_chars_to_int input)
+  Alcotest.(check int) "test_base_example" output (Lib.row_chars_to_int input)
 
 let cases =
   [

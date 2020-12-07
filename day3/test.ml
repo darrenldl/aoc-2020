@@ -1,32 +1,26 @@
 let test_get_circular_index () =
   Alcotest.(check int)
     "test_get_circular_index" 0
-    (Day3lib.get_circular_index 1 0 1)
+    (Lib.get_circular_index 1 0 1)
 
 let test_get_circular_index_2 () =
   Alcotest.(check int)
     "test_get_circular_index_2" 0
-    (Day3lib.get_circular_index 1 0 2)
+    (Lib.get_circular_index 1 0 2)
 
 let test_get_circular_index_3 () =
   Alcotest.(check int)
     "test_get_circular_index_3" 1
-    (Day3lib.get_circular_index 2 0 1)
+    (Lib.get_circular_index 2 0 1)
 
 let test_get_circular_index_4 () =
-  Alcotest.(check int)
-    "can get correct index" 1
-    (Day3lib.get_circular_index 2 0 3)
+  Alcotest.(check int) "can get correct index" 1 (Lib.get_circular_index 2 0 3)
 
 let test_get_circular_index_5 () =
-  Alcotest.(check int)
-    "can get correct index" 0
-    (Day3lib.get_circular_index 2 0 4)
+  Alcotest.(check int) "can get correct index" 0 (Lib.get_circular_index 2 0 4)
 
 let test_get_circular_index_6 () =
-  Alcotest.(check int)
-    "can get correct index" 0
-    (Day3lib.get_circular_index 2 1 1)
+  Alcotest.(check int) "can get correct index" 0 (Lib.get_circular_index 2 1 1)
 
 let () =
   let open Alcotest in
