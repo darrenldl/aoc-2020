@@ -1,6 +1,3 @@
-open Printf
-open Base
-
 let test_of_thing () = Alcotest.(check int) "arst" 1 1
 
 let () =
