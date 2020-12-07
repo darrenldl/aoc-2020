@@ -1,3 +1,8 @@
+(rule
+ (targets fixture.ml)
+ (deps ../fixture.ml)
+ (action (copy %{deps} %{targets})))
+
 (executable
  (name day4bin)
  (modules day4bin)
@@ -5,9 +10,9 @@
  (preprocess (pps ppx_jane ppx_deriving.show)))
 
 (library
- (modules day4lib)
+ (modules fixture day4lib)
  (name day4lib)
- (libraries fixture base pcre str)
+ (libraries base pcre str)
  (preprocess (pps ppx_jane ppx_deriving.show)))
 
 ; (tests

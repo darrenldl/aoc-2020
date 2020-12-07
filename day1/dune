@@ -1,12 +1,17 @@
+(rule
+ (targets fixture.ml)
+ (deps ../fixture.ml)
+ (action (copy %{deps} %{targets})))
+
 (executable
  (name day1bin)
  (modules day1bin)
  (libraries day1lib))
 
 (library
- (modules day1lib)
+ (modules fixture day1lib)
  (name day1lib)
- (libraries fixture containers))
+ (libraries containers))
 
 ; (tests
 ;  (names test)
